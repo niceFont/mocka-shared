@@ -17,6 +17,7 @@ model Endpoint {
   headers Json?
   status Int 
   slug String @unique
+  content_type String
 }
 
 enum Method {
