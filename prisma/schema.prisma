@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Endpoint {
+  id Int @id @default(autoincrement())
+  method Method @default(GET)
+  body_plain String?
+  body_json Json?
+  headers Json?
+  status Int 
+  slug String @unique
+}
+
+enum Method {
+  GET
+  POST
+  DELETE
+  PATCH
+  PUT
+  HEAD
+  OPTIONS
+}
